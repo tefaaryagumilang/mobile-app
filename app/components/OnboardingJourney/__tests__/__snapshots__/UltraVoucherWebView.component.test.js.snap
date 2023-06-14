@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UltraVoucherWebView component renders correctly 1`] = `
+<KeyboardAvoidingView
+  behavior="height"
+  contentContainerStyle={
+    Object {
+      "flex": 1,
+    }
+  }
+  enabled={true}
+  keyboardVerticalOffset={0}
+  style={
+    Object {
+      "flexGrow": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Component
+      injectedJavaScript="const meta = document.createElement('meta'); 
+      meta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'); 
+      meta.setAttribute('name', 'viewport'); 
+      document.getElementsByTagName('head')[0].appendChild(meta);"
+      javaScriptEnabled={true}
+      onLoadProgress={[Function]}
+      onMessage={[Function]}
+      onNavigationStateChange={[Function]}
+      source={
+        Object {
+          "uri": undefined,
+        }
+      }
+    />
+  </View>
+</KeyboardAvoidingView>
+`;

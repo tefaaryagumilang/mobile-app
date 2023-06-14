@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyOrder component MyOrder: loading correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F1F3F6",
+      "paddingBottom": 20,
+      "paddingHorizontal": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "paddingTop": 20,
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#999999"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;
+
+exports[`MyOrder component MyOrder: renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F1F3F6",
+      "paddingBottom": 20,
+      "paddingHorizontal": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#cac6c6",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingBottom": 10,
+        "paddingTop": 110,
+      }
+    }
+  >
+    <Image
+      source="no-voucher.png"
+      style={
+        Object {
+          "alignItems": "center",
+          "aspectRatio": 1.35,
+          "height": 170,
+          "justifyContent": "center",
+          "width": 170,
+        }
+      }
+    />
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "fontFamily": "Roboto",
+              "paddingTop": 20,
+            },
+            Object {
+              "color": "#000",
+              "fontSize": 12,
+            },
+            Object {
+              "color": "#666",
+            },
+          ]
+        }
+      >
+        e-Voucher tidak dapat ditemukan
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontSize": 12,
+            },
+            Object {
+              "color": "#666",
+            },
+            Object {
+              "fontFamily": "Roboto",
+            },
+          ]
+        }
+      >
+        Silahkan lakukan penukaran e-Voucher sekarang!
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MyOrder component MyOrder: searched & rendered correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F1F3F6",
+      "paddingBottom": 20,
+      "paddingHorizontal": 0,
+    }
+  }
+>
+  <View>
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      enableEmptySections={true}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      enableEmptySections={true}
+      extraData={Array []}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`MyOrder component MyOrder: searched, sorted & rendered correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F1F3F6",
+      "paddingBottom": 20,
+      "paddingHorizontal": 0,
+    }
+  }
+>
+  <View>
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      enableEmptySections={true}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      enableEmptySections={true}
+      extraData={Array []}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`MyOrder component MyOrder: sorted & rendered correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F1F3F6",
+      "paddingBottom": 20,
+      "paddingHorizontal": 0,
+    }
+  }
+>
+  <View>
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      enableEmptySections={true}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      enableEmptySections={true}
+      extraData={Array []}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</View>
+`;

@@ -1,0 +1,161 @@
+#! /bin/bash
+
+# Script to build a release APK
+# This script should be run from a "build" system with production keystore installed
+# Update env_setup before running this script
+
+ARG=$1
+CONFIG=".configured"
+
+BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+if [[ $# -eq 0 ]]; then
+	echo -e "Usage: "
+	echo -e "make.sh [command] "
+	echo -e "---------"
+	echo -e "${YELLOW}configure${NC}"
+	echo -e "	${RED}!!!Ensure you update 'env_setup' file in this directory!!!${NC} "
+	echo -e "	This command will: "
+	echo -e "	- Replace ${BLUE}<repo path>/app/config/env.config.js${NC} with <repo path>/app/config/env/production.config.js "
+	echo -e "	- Replace ${BLUE}package${NC} in ${BLUE}<repo name>/android/app/src/main/AndroidManifest.xml${NC} with value specified in ${BLUD}env_setup${NC} file "
+	echo -e "	- Replace ${BLUE}package${NC} in ${BLUE}<repo name>/android/app/src/main/java/com/ubyapp/MainActivity.java${NC} with value specified in ${BLUD}env_setup${NC} file "
+	echo -e "	- Replace ${BLUE}package${NC} in ${BLUE}<repo name>/android/app/src/main/java/com/ubyapp/MainApplication.java${NC} with value specified in ${BLUE}env_setup${NC} file "
+	echo -e "---------"
+	echo -e "${YELLOW}apk${NC}"
+	echo -e "	This command will build the Android apk with the configured value above "
+	echo -e "	- gradle assembleRelease "
+	echo -e "	- The signed APK is available at <repo name>/android/app/build/outputs/apk "
+	echo -e "	- Make sure you have exported keystore password and key password as ${RED}KEY_STORE_PASSWORD${NC} and ${RED}KEY_PASSWORD${NC} "
+	echo -e "---------"
+	echo -e "${YELLOW}verify${NC}"
+	echo -e "	This command will print out APK information on the console including keystore alias and owner"
+	echo -e ""
+
+	exit 0
+fi
+
+# source env file
+. env_setup
+echo "Using env:"
+echo "APP_ID=$APP_ID"
+echo "PRODUCTION_BUILD=$PRODUCTION_BUILD"
+echo "VERSION_CODE=$VERSION_CODE"
+echo "VERSION_NAME=$VERSION_NAME"
+echo "KEYSTORE=$KEYSTORE"
+echo "ALIAS_KS=$ALIAS_KS"
+echo "MINT_KEY=$MINT_KEY"
+
+# configure
+if [[ $ARG = "configure" ]]; then
+	echo "***************"
+	echo "Configure called"
+	touch $CONFIG
+
+	# copy production env
+	echo -e "Copying production env js"
+	cp ../../../app/config/env/production.env.js ../../../app/config/env.config.js
+	echo ""
+
+	#WINDOWS - START
+
+	# replace package name in the Android Manifest
+	sed -i "s/package=\"com.ubyapp\"/package=\"$APP_ID\"/" ../../../android/app/src/main/AndroidManifest.xml
+	# sed -i  "s/android:usesCleartextTraffic=\"true\"//" ../../../android/app/src/main/AndroidManifest.xml
+	sed -i "s/android:networkSecurityConfig=\"@xml/network_security_config\"//" ../../../android/app/src/main/AndroidManifest.xml
+
+	echo -e "**********Changed Android Manifest package name*************************"
+	echo -e "${YELLOW}$(head -n 5 ../../../android/app/src/main/AndroidManifest.xml)${NC}"
+
+	# replace package name in the Application file
+	sed -i  "s/package com.ubyapp;/package $APP_ID;/" ../../../android/app/src/main/java/com/ubyapp/MainApplication.java
+	echo -e "**********Changed MainApplication.java file package name*************************"
+	echo -e "${YELLOW}$(head -n 1 ../../../android/app/src/main/java/com/ubyapp/MainApplication.java)${NC}"
+	# sed -i  "s/GuardianLivenessDetectionSDK.init(this, \"2ccbe59580579d6b\", \"8506c186a6c87e31\", Market.Indonesia);/GuardianLivenessDetectionSDK.init(this, \"$LIVENESS_KEY\", \"$LIVENESS_SECRET_KEY\", Market.Indonesia);/" ../../../android/app/src/main/java/com/ubyapp/MainApplication.java
+
+	# replace package name in the Activity file
+	sed -i  "s/package com.ubyapp;/package $APP_ID;/" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+	echo -e "**********Changed MainActivity.java file package name*************************"
+	echo -e "${YELLOW}$(head -n 1 ../../../android/app/src/main/java/com/ubyapp/MainActivity.java)${NC}"
+
+	# remove test fairy references from Activity class
+	sed -i  "s/import com.testfairy.TestFairy;//" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+	sed -i  "s/TestFairy.begin(this, \"563f426ca80b0e0c0b0418b78fca79f7bec95ca6\");//" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+	echo -e "**********Removed TestFairy from MainActivity.java**************************"
+	echo -e "${YELLOW}$(head -n 50 ../../../android/app/src/main/java/com/ubyapp/MainActivity.java)${NC}"
+
+	# replace mint production api key in MainActivity.java
+	sed -i  "s/da917e0a/$MINT_KEY/" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+
+	# WINDOWS - END
+
+	# MAC OS - START
+
+	# replace package name in the Android Manifest
+	sed -i '' "s/package=\"com.ubyapp\"/package=\"$APP_ID\"/" ../../../android/app/src/main/AndroidManifest.xml
+	# sed -i '' "s/android:usesCleartextTraffic=\"true\"//" ../../../android/app/src/main/AndroidManifest.xml
+	sed -i '' "s/android:networkSecurityConfig=\"@xml/network_security_config\"//" ../../../android/app/src/main/AndroidManifest.xml
+	echo -e "**********Changed Android Manifest package name*************************"
+	echo -e "${YELLOW}$(head -n 5 ../../../android/app/src/main/AndroidManifest.xml)${NC}"
+
+	# replace package name in the Application file
+	sed -i '' "s/package com.ubyapp;/package $APP_ID;/" ../../../android/app/src/main/java/com/ubyapp/MainApplication.java
+	echo -e "**********Changed MainApplication.java file package name*************************"
+	echo -e "${YELLOW}$(head -n 1 ../../../android/app/src/main/java/com/ubyapp/MainApplication.java)${NC}"
+
+	# replace package name in the Activity file
+	sed -i '' "s/package com.ubyapp;/package $APP_ID;/" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+	echo -e "**********Changed MainActivity.java file package name*************************"
+	echo -e "${YELLOW}$(head -n 1 ../../../android/app/src/main/java/com/ubyapp/MainActivity.java)${NC}"
+
+	# remove test fairy references from Activity class
+	sed -i '' "s/import com.testfairy.TestFairy;//" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+	sed -i '' "s/TestFairy.begin(this, \"563f426ca80b0e0c0b0418b78fca79f7bec95ca6\");//" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+	echo -e "**********Removed TestFairy from MainActivity.java**************************"
+	echo -e "${YELLOW}$(head -n 50 ../../../android/app/src/main/java/com/ubyapp/MainActivity.java)${NC}"
+
+	# replace mint production api key in MainActivity.java
+	sed -i '' "s/da917e0a/$MINT_KEY/" ../../../android/app/src/main/java/com/ubyapp/MainActivity.java
+
+	# MAC OS - END
+
+	echo -e "Done configuring for APK build - verify the following before building the APK:"
+	echo -e " - AndroidManifest.xml"
+	echo -e " - MainActivity.java"
+	echo -e " - MainApplication.java"
+	echo -e " - env.config.js"
+
+	exit 0
+fi
+
+# build apk
+if [[ $ARG = "apk" ]]; then
+	if [[ ! -f $CONFIG ]]; then
+		echo "Run 'make configure' first!"
+		exit 0
+	fi
+	echo "***************"
+	echo "Building the APK"
+	cd ../../../android && ./gradlew clean assembleRelease
+
+	ls -al app/build/outputs/apk
+
+	cd ../scripts/prod/android
+
+	rm $CONFIG
+	echo ""
+	exit 0
+fi
+
+# verify apk
+if [[ $ARG = "verify" ]]; then
+	echo "***********Veryfying the apk***************"
+	$AAPT dump badging ../../../android/app/build/outputs/apk/app-release.apk
+ 	echo ""
+	echo "***********Keystore************************"
+	keytool -list -printcert -jarfile ../../../android/app/build/outputs/apk/app-release.apk
+
+ 	echo "DONE"
+fi

@@ -1,0 +1,383 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackAtmDetailStatus page renders correctly 1`] = `
+<KeyboardAwareScrollView
+  contentContainerStyle={
+    Object {
+      "flexGrow": 1,
+    }
+  }
+  extraHeight={120}
+  keyboardShouldPersistTaps="handled"
+>
+  <View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 20,
+          "marginTop": 5,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginLeft": 15,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "fontWeight": "700",
+                "marginBottom": 20,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Image
+              source="Done-Submitted.png"
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 60,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#FA3F70",
+                  "height": 70,
+                  "width": 5,
+                }
+              }
+            />
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+              >
+                STATUS
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Mengajukan
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Image
+              source="Done-OnProcess.png"
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 60,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#FA3F70",
+                  "height": 70,
+                  "width": 5,
+                }
+              }
+            />
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+              >
+                STATUS
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Dalam Proses
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Image
+              source="Grey-Shipping.png"
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 60,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#ccc",
+                  "flexDirection": "row",
+                  "height": 50,
+                  "width": 5,
+                }
+              }
+            />
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+              >
+                STATUS
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Dalam Pengiriman
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Image
+              source="Grey-Delivered.png"
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 60,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#ccc",
+                  "flexDirection": "row",
+                  "height": 50,
+                  "width": 5,
+                }
+              }
+            />
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+              >
+                STATUS
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Terkirim
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View>
+            <Image
+              source="Grey-Active.png"
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 60,
+                }
+              }
+            />
+          </View>
+          <View>
+            <View
+              style={
+                Object {
+                  "marginLeft": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 10,
+                  }
+                }
+              >
+                STATUS
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Aktif
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FA3F70",
+              "borderRadius": 30,
+              "flexDirection": "row",
+              "height": 47,
+              "justifyContent": "center",
+              "paddingHorizontal": 15,
+            },
+            Object {
+              "marginVertical": 15,
+            },
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FF8E8E",
+              "borderRadius": 30,
+              "flexDirection": "row",
+              "height": 47,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 16,
+            }
+          }
+        >
+          AKTIVASI KARTU
+        </Text>
+      </View>
+    </View>
+  </View>
+</KeyboardAwareScrollView>
+`;

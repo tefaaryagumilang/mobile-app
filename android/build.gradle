@@ -1,0 +1,103 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+    buildscript {
+        apply from: "../node_modules/@dynatrace/react-native-plugin/files/plugin.gradle", to: buildscript
+        repositories {
+            maven { url 'https://maven.testfairy.com' }
+            google()
+            mavenCentral()
+            jcenter()
+        }
+        dependencies {
+             classpath 'com.android.tools.build:gradle:4.1.3'
+            // classpath 'com.google.gms:google-services:4.3.3'
+            // NOTE: Do not place your application dependencies here; they belong
+            // in the individual module build.gradle files
+        }
+    }
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+        mavenCentral()
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url ("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url ("$rootDir/mint-plugin-repo-5.2.1")
+        }
+        maven {
+            url ("https://maven.testfairy.com")
+        }
+        maven {
+            url ("https://jitpack.io")
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
+    }
+    // Fix based on https://github.com/facebook/react-native/issues/14223#issuecomment-304509104
+    configurations.all {
+        resolutionStrategy {
+            eachDependency { DependencyResolveDetails details ->
+                if (details.requested.group == 'com.facebook.react' && details.requested.name == 'react-native') {
+                    def file = new File("$rootDir/../node_modules/react-native/package.json")
+                    def version = new groovy.json.JsonSlurper().parseText(file.text).version
+                    details.useVersion version
+                }
+            }
+        }
+    }
+}
+
+apply from: "../node_modules/@dynatrace/react-native-plugin/files/dynatrace.gradle"
+
+subprojects {
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 31
+                buildToolsVersion '29.0.2'
+            }
+        }
+        // upgrades the java file of library to use androidx
+        def file = new File("./androidxUpgrade.json")
+        def upgrade = new groovy.json.JsonSlurper().parseText(file.text)
+        def map = new File("./libraryMap.json")
+        def upgradeMap = new groovy.json.JsonSlurper().parseText(map.text)
+
+        upgrade.each { eachUpgrade ->
+            if(project.name == eachUpgrade.name) {
+                preBuild.doFirst {
+                    eachUpgrade.replace.each{ obj ->
+                        def replace = obj.replace ? obj.replace : upgradeMap[obj.match]
+                        replace && ant.replaceregexp(match: obj.match, replace: replace, flags: 'g', byline: false) { fileset(dir: eachUpgrade.dir, includes: '*.java') }
+                        ant.replaceregexp(match: 'android.support.v4.content.FileProvider', replace: upgradeMap['android.support.v4.content.FileProvider'], flags: 'g', byline: false) { fileset(dir: './src/main', includes: '*.xml') }
+                    }
+                }
+            }
+        }
+    }
+    buildscript {
+        repositories {
+            google()
+            jcenter()
+            maven { url "https://dl.bintray.com/android/android-tools/"  }
+        }
+    }
+}
+
+ext {
+    buildToolsVersion = "29.0.2"
+    minSdkVersion = 19
+    compileSdkVersion = 31
+    targetSdkVersion = 31
+    supportLibVersion = "28.0.0"
+}

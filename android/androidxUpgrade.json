@@ -1,0 +1,564 @@
+[
+  {
+    "name":"pushwoosh-react-native-plugin",
+    "dir": "./src/main/java/com/pushwoosh/reactnativeplugin/",
+    "replace": [
+    {
+      "match": "android.support.annotation",
+      "replace": "androidx.annotation"
+    }
+    ]
+  },
+  {
+    "name":"react-native-biometrics",
+    "dir":"./src/main/java/com/rnbiometrics/",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-camera",
+    "dir":"./src/main/java/com/google/android/cameraview/",
+    "replace":[
+      {
+        "match": "android.support.v4.util.SparseArrayCompat",
+        "replace": "androidx.collection.SparseArrayCompat"
+      },
+      {
+        "match": "android.support.v4.util.ArrayMap",
+        "replace": "androidx.collection.ArrayMap"
+      },
+      {
+        "match": "android.support.v4.os.ParcelableCompatCreatorCallbacks",
+        "replace": "androidx.core.os.ParcelableCompatCreatorCallbacks"
+      },
+      {
+        "match": "android.support.v4.os.ParcelableCompat",
+        "replace": "androidx.core.os.ParcelableCompat"
+      },
+      {
+        "match": "android.support.v4.view.ViewCompat",
+        "replace": "androidx.core.view.ViewCompat"
+      },
+      {
+        "match":"android.support.media.ExifInterface",
+        "replace":"androidx.exifinterface.media.ExifInterface"
+      },
+      {
+        "match":"android.support.v4.content.ContextCompat",
+        "replace":"androidx.core.content.ContextCompat"
+      },
+      {
+        "match":"android.support.v4.util.Pools",
+        "replace":"androidx.core.util.Pools"
+      },
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-camera",
+    "dir":"./src/main/java/com/lwansbrough/RCTCamera",
+    "replace":[
+      {
+        "match":"android.support.media.ExifInterface",
+        "replace":"androidx.exifinterface.media.ExifInterface"
+      },
+      {
+        "match":"android.support.v4.content.ContextCompat",
+        "replace":"androidx.core.content.ContextCompat"
+      },
+      {
+        "match":"android.support.v4.util.Pools",
+        "replace":"androidx.core.util.Pools"
+      },
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-camera",
+    "dir":"./src/main/java/org/reactnative/camera",
+    "replace":[
+      {
+        "match":"android.support.v4.content.ContextCompat",
+        "replace":"androidx.core.content.ContextCompat"
+      },
+      {
+        "match":"android.support.media.ExifInterface",
+        "replace":"androidx.exifinterface.media.ExifInterface"
+      },
+      {
+        "match":"android.support.v4.util.Pools",
+        "replace":"androidx.core.util.Pools"
+      },
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-camera",
+    "dir":"./src/main/java/org/reactnative/camera/events",
+    "replace":[
+      {
+        "match":"android.support.v4.content.ContextCompat",
+        "replace":"androidx.core.content.ContextCompat"
+      },
+      {
+        "match":"android.support.media.ExifInterface",
+        "replace":"androidx.exifinterface.media.ExifInterface"
+      },
+      {
+        "match":"android.support.v4.util.Pools",
+        "replace":"androidx.core.util.Pools"
+      },
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-camera",
+    "dir":"./src/main/java/org/reactnative/camera/tasks",
+    "replace":[
+      {
+        "match":"android.support.v4.content.ContextCompat",
+        "replace":"androidx.core.content.ContextCompat"
+      },
+      {
+        "match":"android.support.media.ExifInterface",
+        "replace":"androidx.exifinterface.media.ExifInterface"
+      },
+      {
+        "match":"android.support.v4.util.Pools",
+        "replace":"androidx.core.util.Pools"
+      },
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-firebase",
+    "dir":"./src/main/java/io/invertase/firebase/analytics",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match": "android.support.v4.app.NotificationManagerCompat",
+        "replace": "androidx.core.app.NotificationManagerCompat"
+      },
+      {
+        "match":"android.support.v4.content.LocalBroadcastManager",
+        "replace":"androidx.localbroadcastmanager.content.LocalBroadcastManager"
+      },
+      {
+        "match":"android.support.v4.app.NotificationCompat",
+        "replace":"androidx.localbroadcastmanager.content.LocalBroadcastManager"
+      },
+      {
+        "match":"android.support.v4.app.RemoteInput",
+        "replace":"androidx.core.app.RemoteInput"
+      }
+    ]
+  },
+  {
+    "name":"react-native-firebase",
+    "dir":"./src/main/java/io/invertase/firebase/messaging",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match": "android.support.v4.app.NotificationManagerCompat",
+        "replace": "androidx.core.app.NotificationManagerCompat"
+      },
+      {
+        "match":"android.support.v4.content.LocalBroadcastManager",
+        "replace":"androidx.localbroadcastmanager.content.LocalBroadcastManager"
+      },
+      {
+        "match":"android.support.v4.app.NotificationCompat",
+        "replace":"androidx.localbroadcastmanager.content.LocalBroadcastManager"
+      },
+      {
+        "match":"android.support.v4.app.RemoteInput",
+        "replace":"androidx.core.app.RemoteInput"
+      }
+    ]
+  },
+  {
+    "name":"react-native-firebase",
+    "dir":"./src/main/java/io/invertase/firebase/notifications",
+    "replace":[
+      {
+        "match": "android.support.v4.app.NotificationCompat"
+      },
+      {
+        "match": "android.support.v4.app.RemoteInput"
+      },
+      {
+        "match": "android.support.v4.content.LocalBroadcastManager"
+      },
+      {
+        "match": "android.support.annotation.RequiresPermission"
+      },
+      {
+        "match": "android.support.annotation.RequiresApi"
+      },
+      {
+        "match": "android.support.annotation.Keep"
+      }
+      
+    ]
+  },
+  {
+    "name":"react-native-firebase",
+    "dir":"./src/main/java/io/invertase/firebase/storage",
+    "replace":[
+      {
+        "match": "android.support.annotation.RequiresPermission"
+      }
+    ]
+  },
+  {
+    "name":"react-native-firebase",
+    "dir":"./src/main/java/io/invertase/firebase",
+    "replace":[
+      {
+        "match": "android.support.annotation.Keep"
+      }
+    ]
+  },
+  {
+    "name":"react-native-google-analytics-bridge",
+    "dir":"./src/main/java/com/idehub/GoogleAnalyticsBridge",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      }
+    ]
+  },
+  {
+    "name":"react-native-image-crop-picker",
+    "dir":"./src/main/java/com/reactnative/ivpusic/imagepicker",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      },
+      {
+        "match": "android.support.v4.app.ActivityCompat"
+      }
+    ]
+  },
+  {
+    "name":"react-native-image-picker",
+    "dir":"./src/main/java/com/imagepicker",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      },
+      {
+        "match": "android.support.v4.app.ActivityCompat"
+      },
+      {
+        "match": "android.support.v7.app.AlertDialog"
+      }
+    ]
+  },
+  {
+    "name":"react-native-image-picker",
+    "dir":"./src/main/java/com/imagepicker/utils",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      },
+      {
+        "match": "android.support.v4.app.ActivityCompat"
+      },
+      {
+        "match": "android.support.v7.app.AlertDialog"
+      }
+    ]
+  },
+  {
+    "name":"react-native-image-picker",
+    "dir":"./src/main/java/com/imagepicker/media",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      },
+      {
+        "match": "android.support.v7.app.AlertDialog"
+      }
+    ]
+  },
+  {
+    "name":"react-native-image-picker",
+    "dir":"./src/main/java/com/imagepicker/",
+    "replace":[
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      }
+    ]
+  },
+  {
+    "name":"react-native-image-picker",
+    "dir":"./src/main/java/com/imagepicker/permissions",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      },
+      {
+        "match": "android.support.v7.app.AlertDialog"
+      }
+    ]
+  },
+    {
+      "name": "react-native-location",
+      "dir": "./src/main/java/com/github/reactnativecommunity/location",
+      "replace": [{
+          "match": "android.support.annotation.Nullable"
+        },
+        {
+          "match": "android.support.annotation.NonNull"
+        },
+        {
+          "match": "android.support.v4.app.ActivityCompat"
+        }
+      ]
+    },
+  {
+    "name":"react-native-maps",
+    "dir":"./src/main/java/com/airbnb/android/react/maps",
+    "replace":[
+      {
+        "match": "android.support.v4.view.GestureDetectorCompat"
+      },
+      {
+        "match" : "android.support.v4.view.MotionEventCompat"
+      },
+      {
+        "match": "android.support.v4.content.PermissionChecker"
+      }
+    ]
+  },
+  {
+    "name":"react-native-share",
+    "dir":"./src/main/java/cl/json",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      }
+    ]
+  },
+  {
+    "name":"react-native-view-shot",
+    "dir":"./src/main/java/fr/greweb/reactnativeviewshot",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match" : "android.support.v4.content.FileProvider"
+      },
+      {
+        "match": "android.support.v4.util.Pair"
+      }
+    ]
+  },
+  {
+    "name":"react-native-gesture-handler",
+    "dir":"./src/main/java/com/swmansion/gesturehandler/react",
+    "replace":[
+      {
+        "match": "android.support.v4.util.Pools"
+      }
+    ]
+  },
+  {
+    "name":"react-native-reanimated",
+    "dir":"./src/main/java/com/swmansion/reanimated/transitions",
+    "replace":[
+      {
+        "match": "android.support.annotation",
+        "replace": "androidx.annotation"
+      },
+      {
+        "match": "android.support.transition",
+        "replace": "androidx.transition"
+      }
+    ]
+  },
+  {
+    "name": "react-native-location",
+    "dir": "./src/main/java/com/github/reactnativecommunity/location",
+    "replace": [{
+        "match": "android.support.annotation.Nullable"
+      },
+      {
+        "match": "android.support.annotation.NonNull"
+      },
+      {
+        "match": "android.support.v4.app.ActivityCompat"
+      }
+    ]
+  },
+  {
+    "name":"react-native-share",
+    "dir":"./src/main/java/cl/json",
+    "replace":[
+      {
+        "match": "android.support.v4.content.CursorLoader"
+      }
+    ]
+  },
+      {
+        "name": "liveness",
+        "dir": "./src/main/java/ai/advance/liveness/sdk/activity",
+        "replace": [{
+            "match": "android.support.annotation.NonNull"
+          },
+          {
+            "match": "android.support.annotation.Nullable"
+          },
+          {
+            "match": "android.support.v4.app.ActivityCompat"
+          },
+          {
+            "match": "android.support.v4.content.ContextCompat"
+          },
+          {
+            "match": "android.support.v7.app.AlertDialog"
+          },
+          {
+            "match": "android.support.v7.app.AppCompatActivity"
+          },
+          {
+            "match": "androidx.annotation.Nullable"
+          },
+          {
+            "match": "androidx.appcompat.app.AppCompatActivity"
+          },
+          {
+            "match": "androidx.annotation.NonNull"
+          },
+          {
+            "match": "androidx.core.content.ContextCompat"
+          },
+          {
+            "match": "androidx.appcompat.app.AlertDialog"
+          }
+        ]
+      }, {
+        "name": "liveness",
+        "dir": "./src/main/java/ai/advance/liveness/sdk/fragment",
+        "replace": [{
+            "match": "android.support.annotation.NonNull"
+          },
+          {
+            "match": "android.support.annotation.Nullable"
+          },
+          {
+            "match": "android.support.v4.app.ActivityCompat"
+          },
+          {
+            "match": "android.support.v4.content.ContextCompat"
+          },
+          {
+            "match": "android.support.v7.app.AlertDialog"
+          },
+          {
+            "match": "android.support.v7.app.AppCompatActivity"
+          },
+          {
+            "match": "android.support.v4.app.Fragment"
+          },
+          {
+            "match": "android.support.v4.app.FragmentActivity"
+          },
+          {
+            "match": "androidx.annotation.Nullable"
+          },
+          {
+            "match": "androidx.annotation.NonNull"
+          },
+          {
+            "match": "androidx.fragment.app.Fragment"
+          },
+          {
+            "match": "androidx.fragment.app.FragmentActivity"
+          },
+          {
+            "match": "androidx.appcompat.app.AlertDialog"
+          }
+
+
+        ]
+      },
+
+      {
+        "name": "liveness_rn",
+        "dir": "./src/main/java/ai/advance/liveness/sdk/rn",
+        "replace": [{
+            "match": "android.support.annotation.NonNull"
+          },
+          {
+            "match": "android.support.annotation.Nullable"
+          },
+          {
+            "match": "android.support.v4.app.ActivityCompat"
+          },
+          {
+            "match": "android.support.v4.content.ContextCompat"
+          },
+          {
+            "match": "android.support.v7.app.AlertDialog"
+          },
+          {
+            "match": "android.support.v7.app.AppCompatActivity"
+          }
+        ]
+      }
+
+]

@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "947013253200",
+    "firebase_url": "https://simobiplusprod.firebaseio.com",
+    "project_id": "simobiplusprod",
+    "storage_bucket": "simobiplusprod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947013253200:android:25640380ebca0f91",
+        "android_client_info": {
+          "package_name": "com.simas.mobile.SimobiPlus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947013253200-b7h8mtg7ks6021b058anfl4e86p2abd6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simas.mobile.SimobiPlus",
+            "certificate_hash": "aa414837129ed982afbcaabf935fd761c761ff24"
+          }
+        },
+        {
+          "client_id": "947013253200-57un1093tbbocedpua8kdebg2t94s25n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdq5tX1vzcTq3FKPuj85XK2lEpIJ18DZk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947013253200-57un1093tbbocedpua8kdebg2t94s25n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "947013253200-0vk5s4v99hqadpj76dj9d76jun52cp6o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ubyapp"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947013253200:android:f1f5388bc3895996",
+        "android_client_info": {
+          "package_name": "com.ubyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947013253200-57un1093tbbocedpua8kdebg2t94s25n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdq5tX1vzcTq3FKPuj85XK2lEpIJ18DZk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

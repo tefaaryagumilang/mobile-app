@@ -1,0 +1,30 @@
+# Env variables for building android app
+
+# Set production build
+export PRODUCTION_BUILD="true"
+
+# Liveness AccessKey production key
+export LIVENESS_KEY="8cde198e6671d0ee"
+
+# Liveness SecretKey production key
+export LIVENESS_SECRET_KEY="511f41ea2fc8eb34"
+
+# Version code - used by playstore to determine the latest version
+# Should be bumped up every release
+export VERSION_CODE=802500001
+
+# Version name - this is displayed to the user
+# Change the version name every release
+export VERSION_NAME="8.25.1"
+
+# Java keystore to be used to sign the app
+export KEYSTORE=/Users/kris/Documents/SimasKeystore.jks
+
+# Alias for the key store
+export ALIAS_KS="SimobiPlus"
+
+# Application ID
+export APP_ID="com.simas.mobile.SimobiPlus"
+
+# AAPT path
+export AAPT=/Users/kris/Library/Android/sdk/build-tools/23.0.1/aapt

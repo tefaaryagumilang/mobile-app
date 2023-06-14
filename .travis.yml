@@ -1,0 +1,80 @@
+language: android
+matrix:
+  fast_finish: true
+  include:
+  - language: objective-c
+    osx_image: xcode9.4
+    env: DEV=IOS
+  - language: android
+    env: DEV=ANDROID
+    sudo: required
+    android:
+      components:
+        - build-tools-27.0.3 
+        - build-tools-28.0.3 
+        - build-tools-29.0.3 
+        - android-27
+        - android-28
+        - android-29
+        - extra-android-m2repository
+        - extra-google-google_play_services
+        - extra-google-m2repository
+        - addon-google_apis-google-23
+
+branches:
+  only:
+    - master
+    - new-master
+
+before_install:
+  - "scripts/cron.sh"
+  - nvm install 10.14.2
+  - node --version
+  - npm install -g yarn
+
+install:
+  - yarn
+
+cache:
+ directories:
+ - ./cache
+ - $HOME/.nvm/
+ - ./node_modules
+
+before_script:
+  - "./scripts/before.sh"
+
+script:
+  - "./scripts/build.sh"
+  # run these here so the build breaks when deployment fails
+  - rvm system
+# - gem update CFPropertyList
+  - "./scripts/package.sh"
+  - "./scripts/uploader.sh"
+
+#after_success:
+# these will not run if build fails or npm test fails!
+#  - rvm system
+#  - gem update CFPropertyList
+#  - "./scripts/package.sh"
+#  - "./scripts/uploader.sh"
+
+after_script:
+  - "./scripts/clean-up.sh"
+
+notifications:
+  slack:
+    secure: m3I9jmXtBEnQ9fn18Rl8QyYTABojMZP38vLkNWn8zq+zZBD4MN1irs7bY6QPurZGC1U5sBQyDzk2B8yHdjz2AoYL62rNsZc9J2E8hu0Ja+i9JldKaStaTg74p4H59l0CwDVWTBZqQboMM+6ZnCKu+GYENFGpEe+bgcGH0kT1R6gqRCyIwvXxnOYcgCRymEZkEJ4BtFJhJeURVD4x3SwDTH18A7t62p3n8X7BAXj4ZpmJGLHmidGF8CKVD1v+f5RhL60W1EDbhM/ZKzQ/Jbgl2f+K41THNDOqeee+OKd9GvBJYVxfh/g3IUAS1TTONaakIO7tGBLqhVfTQZTI5PqeaM//4kQGU7hVawoJAPm/ALOgLEbn4iDqJ7G+jPOJSEPY0oC0UvKkcxc4kKitKlOgN003mL8wUv8rn5fcUD2xm7smoHzR5DVkZpJ+QUnVjHHXC/V+lMwOcjek7MRzlHFjqBzy+8xdU3q22N6FcAAE0nxhpL9aHjuxsM9hy7LPwn/VzuSsqqROQOxem3um6zfVjn+bnzHd1umUsPDdukcLHZiljkhQ+YXnxXd7eNLlOhFUn6IBf6gaQNFXa2QbXaZndyQbmdvQjBc2TJzitJ5tlbqU+QS/9C2+dmRVveXSj/88/C+pxzvrX30sdM5Q2UFOoWnCbVfZla0kfmTta7qCaAo=
+
+env:
+  global:
+# key password
+  - secure: mbsooJYCnvCRooiE+KQKgTHfRHEft9sV3hXjpclNAQIym/omDIndBSrgOOIfuGHgYS/PMR6PgyEZplGZ/fF/Kr++rFO7LfsAWFU9ZKad2T9Sma+1hvgHdIXAKwKxAiMRgh8QUjXVxemUsh5RI5RvVd0/8IaKdAFqUYPXrgYhPR/Pce4aT8aB5wWa+XS4VYhL4cNIVZ/WFwzbtZ0BNPGtF9ee+hK+TaIAmdUbxIwpDUT6m9qBqMeFKqTiDVTgzlkmAIHNAS5/oJWPxHSs4XjwUA/P3Jc6MUWIjBHICnDGC5Z/UHYlkcKJ3WZJgpWozYSQb4eQ229l/AdcnOv78QE2EnMJdAEGxo7Lj+G+fjMgKk5QDhiMgYOMBGkDAQFSdy5CM/WAHqYyOJGZHHjcL5trSTwb0OFos5o7S2dmSec9zQyRgIqcrk9q/nmK6oIyM5Az4gSLL10VM/GtB7JDm/DRMncH/13YFESAZeDCztvtwqhRF7sEIsEMnpeZV/upS29Mcu05We69aCL6ZrfnS6K50lbVpXqmPoGAx7k2A+pjTgUJoZ65Vuxchl+ZKIwmPnicbrBxQwp4f6KyhpyJ2gEdtnP/I0Rf4P66bXMAOzJ3tU9Th80xtXP2dcCCcgIts6aMZgfejTNI7bzaUERdQ8qI5KYmvp5omf4SKWMcEVPx6Nc=
+# Testfairy key
+  - secure: iEm5RAW7yvwWmUsBL0vJaR1iMqzAoT7isWl/n+YAuCWuX08EFZHlrMi4jDE7jaJdg7HtD4lOZLm9S2s4Hl6qGpvGre6SqTcBUHVgy+C/5OGekewbS9tlK8T1ZoQsf5gspxR5XXzUEAA4pwXEdt1k+bGRFMVhUtiBd763w+3FGsvpYx2g9DuQiWEIsXKY6Q/xTU/vj37zTq0fWdGu6nvZ02VA5DAWVl8FWOjJGtI8NOGB5Zh1BhqCKsoZaXyEYXXJWgAZCzVYr54eSRhcXPw3F0x9prpD3n9ptOSbIcE0wFdUtCF+GhxHdkBGv8OJBOfoKuFzKzhqJvy+qoLXk8tVIxYt0qBA15xOTlmyEf9kDN6ZaYZ/nqCm/Jbqg6VsXjE1ta7jb7l9EbS4vtNPtqz6kR06PyCCfVUzTfr5JjYemlxQXmJqLEG5CFfbEPQlTv17RgqtZvZgxDvIHtjGxIDzuOcpa1S8MaTweyvQ7Arxe6SIWZHY7JR8+G5On7gms0NSgLsv4i82uE6UZOXKLaMav8qtIFMgLx00o/sb+kCIO6qiPLNR38psq9NuXN13iwcVK4geePQnXGjUop7NYUB3paRYLXMDT0QGC7v3mZ12du0Y4eAx6CQv1CiEv6E/NtLNpePq2rs9gYbjImIYFpsLA1b4Gpc4a0QtrZ7wotxUkaE=
+# key store password
+  - secure: c1uuhb4fcB+OySjKKPK5iy69sDYRAzliGQzg2xj6saWCEB0MU8utdm0eN/eJdXrsPFUx4VJrziPa/uRCHU1hSb3h1J3SdAZ+cuTrMLXElZI9y7dV8QJyxUstkP5DU/BSjscp/GloOTqAPZnjCYbJNiJv5FqKV52rR+yNIssPQsQLPi8PZE1Cwp8DAWI1wgnmNRl3M0VxXgRLxb7tOi//jHaZ1Xb6qNHLfg8r00mZvC+SlWFBkl0kZr/Kraae98iTR8p1yS8frzpm2w9sVwMaTlr4JEOmPxamTV/u3OLLLn/gGKFnblr8WzdzLd6jihgcrDqVUR6u4lEvwjGRuGmbZJpZlG/xyEU8dFEEpCSyggpyCqzwEgawvyTL4bKg8xdw6EO8gUGchA3Q+o+4TYS5hpokLzWost9DLerh1eEtemXb4dsefFMYzuFhGwzolNgNHZbfTZyQyIHLyBZgnN5NhCvYkFnVCYsAh+pFgDDcEF9LlAY9V4i0ne0QfrcWt9D2hOJK1jLp+Dc7iLOTjpYu0iBLcKALPed+G2agYCKGOw4+UFoWdREmpODOHFFC+qpLj3K6SKY+vvst7CtGRuSm3HTKmXiNa+QP5mXnyNN9Ezkfzh1DxxAKs1zXktExkVokaNCl8q2I7TitYTMbHVFFrW0oZz+ru1GioZ72tu2r6mw=
+  - APP_NAME="ubyapp"
+  - 'DEVELOPER_NAME="iPhone Developer: Fedri Arianto"'
+  - PROFILE_NAME="ubyapp_Ad_Hoc"
+  - BUILD_NUMBER="$TRAVIS_BUILD_NUMBER"

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackAtmCard: form page renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#f9f8fd",
+    }
+  }
+>
+  <View>
+    <View>
+      <View>
+        <Text
+          style={
+            Object {
+              "alignSelf": "center",
+              "fontSize": 16,
+              "marginTop": 200,
+            }
+          }
+        >
+          Pelacakan data kartu ATM kosong
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "marginHorizontal": 15,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;
